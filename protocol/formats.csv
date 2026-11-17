@@ -1,0 +1,45 @@
+kind,format,extensions,preferred,what_we_show,lines_up_with
+photo,jpeg,.jpg .jpeg,yes,the photo,EXIF
+photo,heic,.heic .heif,no,a JPEG copy,EXIF
+photo,png,.png,no,the image,
+photo,webp,.webp,no,the image,
+photo,dng,.dng,no,a JPEG copy,Adobe DNG
+aerial-photo,geotiff,.tif .tiff,yes,a JPEG copy on the map,OGC GeoTIFF
+aerial-photo,jpeg,.jpg .jpeg,no,the photo with its bbox on the map,STAC Item
+360-photo,jpeg,.jpg,yes,a 360 viewer,equirectangular projection
+video,mp4,.mp4,yes,the video,
+video,mov,.mov,no,an MP4 copy,
+360-video,mp4,.mp4,yes,a 360 viewer,equirectangular projection
+scan,e57,.e57,yes,a point cloud viewer,ASTM E2807
+scan,laz,.laz .las,yes,a point cloud viewer,ASPRS LAS
+scan,ply,.ply,no,a point cloud viewer,
+scan,xyz,.xyz .pts,no,a point cloud viewer,
+mesh,glb,.glb .gltf,yes,a 3D viewer,Khronos glTF 2.0
+mesh,usdz,.usdz .usd .usda,yes,a 3D viewer,OpenUSD
+mesh,obj,.obj,no,a GLB copy,
+mesh,fbx,.fbx,no,a GLB copy,
+splat,ply,.ply,yes,a splat viewer,3D Gaussian splatting
+splat,spz,.spz,no,a splat viewer,
+design-model,ifc,.ifc,yes,a 3D viewer,buildingSMART IFC
+design-model,glb,.glb .gltf,yes,a 3D viewer,Khronos glTF 2.0
+design-model,usd,.usd .usdz .usda,yes,a 3D viewer,OpenUSD
+design-model,skp,.skp,no,kept as is,SketchUp
+design-model,rvt,.rvt,no,kept as is,Revit
+drawing,pdf,.pdf,yes,the PDF,
+drawing,svg,.svg,yes,the drawing,W3C SVG
+drawing,dwg,.dwg .dxf,no,kept as is,AutoCAD DWG / DXF
+map,geojson,.geojson,yes,on the map,IETF RFC 7946
+map,kml,.kml .kmz,no,a GeoJSON copy,OGC KML
+map,shapefile,.zip,no,a GeoJSON copy,Esri shapefile
+map,geopackage,.gpkg,no,a GeoJSON copy,OGC GeoPackage
+map,gpx,.gpx,no,a GeoJSON copy,GPX 1.1
+table,csv,.csv,yes,a table,RFC 4180
+table,xlsx,.xlsx,no,a CSV copy,
+table,json,.json,no,kept as is,
+document,pdf,.pdf,yes,the PDF,
+document,markdown,.md,yes,the text,CommonMark
+document,docx,.docx,no,a PDF copy,
+audio,m4a,.m4a,yes,a player,
+audio,mp3,.mp3,yes,a player,
+audio,wav,.wav,no,an M4A copy,
+other,any,,no,kept as is with its description,

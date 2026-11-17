@@ -1,13 +1,16 @@
 """The number check. Runs on every pull request, and anyone can run it: `python3 tools/check.py`.
 
-It does four things:
-1. Every row of data (shared/caps.csv, each study's data/ and budget/) names its sources, and every
-   source it names has a row in shared/sources.csv with a link and the date it was read.
+It does five things:
+1. Every row of data (shared/caps.csv, each place's data/ and proposal/budget/) names its sources,
+   and every source it names has a row in shared/sources.csv with a link and the date it was read.
    A missing or unknown source fails the check.
-2. It reruns each study's models and lists every number on the page that would move.
+2. Every place's place.json and proposal.json follow the protocol's schemas, and every capture in
+   captures.csv has its file (or a link), a matching SHA-256, a date, a location, who made it and
+   an open license.
+3. It reruns each study's models and lists every number on the page that would move.
    Moving numbers don't fail the check; they're what a reviewer needs to see.
-3. It redraws the charts from the data and says which ones would change.
-4. It checks that the files read cleanly: CSVs parse, maps are closed polygons, dates are dates.
+4. It redraws the charts from the data and says which ones would change.
+5. It checks that the files read cleanly: CSVs parse, maps are closed polygons, dates are dates.
 
 Options:
   --against <git ref>  compare with the numbers on that branch, e.g. origin/main (what the page shows now)
@@ -31,8 +34,25 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from commons import ROOT, fmt, path, read_csv  # noqa: E402
 
-STUDIES = sorted(d for d in os.listdir(ROOT) if os.path.isfile(os.path.join(ROOT, d, "numbers.csv")))
+PLACES = sorted(d for d in os.listdir(ROOT) if os.path.isfile(os.path.join(ROOT, d, "place.json")))
+STUDIES = [d for d in PLACES if os.path.isfile(os.path.join(ROOT, d, "numbers.csv"))]
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+TAKEN = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?(/\d{4}(-\d{2}(-\d{2})?)?)?$")
+LICENSES = {"CC-BY-4.0", "CC0-1.0", "CC-BY-SA-4.0", "ODbL-1.0", "public-domain"}
+GIT_LIMIT = 25 * 1024 * 1024
+
+
+def valid_taken(v):
+    """2026-11-16, 2026-11, 2026, or a range of those like 1951/1952. Every part must be a real date."""
+    if not TAKEN.match(v):
+        return False
+    for part in v.split("/"):
+        y, m, d = (part.split("-") + ["01", "01"])[:3]
+        try:
+            datetime.date(int(y), int(m), int(d))
+        except ValueError:
+            return False
+    return True
 
 
 class Report:
@@ -77,7 +97,7 @@ def check_sources(rep):
 
 def data_files():
     files = [path("shared", "caps.csv")]
-    for s in STUDIES:
+    for s in PLACES:
         files += sorted(glob.glob(path(s, "data", "*.csv")))
     return files
 
@@ -117,8 +137,8 @@ def check_row_sources(rep, where, cell, sources, required):
 
 
 def check_budgets(rep, sources, values, update=False):
-    for s in STUDIES:
-        for f in sorted(glob.glob(path(s, "budget", "*.csv"))):
+    for s in PLACES:
+        for f in sorted(glob.glob(path(s, "proposal", "budget", "*.csv"))):
             rows = read_csv(rel(f))
             quoted, waiting, changed = 0.0, 0, False
             for i, r in enumerate(rows, 2):
@@ -150,7 +170,7 @@ def check_budgets(rep, sources, values, update=False):
 
 
 def check_maps(rep):
-    files = glob.glob(path("shared", "maps", "*.geojson")) + [f for s in STUDIES for f in glob.glob(path(s, "maps", "*.geojson"))]
+    files = glob.glob(path("shared", "maps", "*.geojson")) + [f for s in PLACES for f in glob.glob(path(s, "maps", "*.geojson"))]
     if not files:
         rep.fail("maps", "no maps found")
     for f in files:
@@ -169,6 +189,124 @@ def check_maps(rep):
                         rep.fail(rel(f), f"feature {k} ({feat.get('properties', {}).get('name')}) has a ring that isn't closed")
                     if any(not (-180 <= p[0] <= 180 and -90 <= p[1] <= 90) for p in ring):
                         rep.fail(rel(f), f"feature {k} has a point that isn't [longitude, latitude]")
+
+
+def schema_errors(obj, schema, where=""):
+    """The parts of JSON Schema the protocol uses: required, type, enum, pattern, items."""
+    errs = []
+    types = {"object": dict, "array": list, "string": str, "number": (int, float), "integer": int, "boolean": bool}
+    t = schema.get("type")
+    if t and not isinstance(obj, types[t]):
+        return [f"{where or 'the file'} should be a {t}"]
+    if "enum" in schema and obj not in schema["enum"]:
+        errs.append(f"{where} is `{obj}`; it must be one of {', '.join(map(str, schema['enum']))}")
+    if "pattern" in schema and isinstance(obj, str) and not re.match(schema["pattern"], obj):
+        errs.append(f"{where} `{obj}` doesn't match {schema['pattern']}")
+    if isinstance(obj, dict):
+        for k in schema.get("required", []):
+            if k not in obj:
+                errs.append(f"missing `{(where + '.' if where else '') + k}`")
+        for k, sub in schema.get("properties", {}).items():
+            if k in obj:
+                errs += schema_errors(obj[k], sub, (where + "." if where else "") + k)
+    if isinstance(obj, list) and "items" in schema:
+        for i, item in enumerate(obj):
+            errs += schema_errors(item, schema["items"], f"{where}[{i}]")
+    return errs
+
+
+def check_manifests(rep, sources):
+    schemas = {n: json.load(open(path("protocol", "schema", f"{n}.schema.json"))) for n in ("place", "proposal")}
+    if not PLACES:
+        rep.fail("repo", "no place folder with a place.json was found")
+    for s in PLACES:
+        for name, file in (("place", path(s, "place.json")), ("proposal", path(s, "proposal", "proposal.json"))):
+            if not os.path.exists(file):
+                continue
+            try:
+                with open(file) as fh:
+                    obj = json.load(fh)
+            except ValueError as e:
+                rep.fail(rel(file), f"doesn't read as JSON: {e}")
+                continue
+            for e in schema_errors(obj, schemas[name]):
+                rep.fail(rel(file), e)
+            base = os.path.dirname(file)
+            for key in ("geometry", "captures", "budget", "numbers", "images"):
+                v = obj.get(key)
+                if isinstance(v, str) and not v.startswith("http") and not os.path.exists(os.path.join(ROOT, s, v)):
+                    rep.fail(rel(file), f"`{key}` points at {v}, which isn't there")
+            for ph in obj.get("phases", []):
+                for key in ("geometry", "budget"):
+                    if key in ph and not os.path.exists(os.path.join(ROOT, s, ph[key])):
+                        rep.fail(rel(file), f"phase `{ph.get('id')}` {key} points at {ph[key]}, which isn't there")
+            if name == "proposal":
+                if obj.get("place") != s:
+                    rep.fail(rel(file), f"`place` is `{obj.get('place')}` but the folder is `{s}`")
+                nd = obj.get("next_decision") or {}
+                check_row_sources(rep, rel(file) + " next_decision", ";".join(nd.get("source_ids", [])), sources, required=False)
+                for h in obj.get("history", []):
+                    if not valid_taken(str(h.get("date", ""))):
+                        rep.fail(rel(file), f"a history entry has the date `{h.get('date')}`; use YYYY-MM-DD")
+                    check_row_sources(rep, rel(file) + " history", ";".join(h.get("source_ids", [])), sources, required=False)
+
+
+def check_captures(rep, sources):
+    import hashlib
+    n = 0
+    for s in PLACES:
+        f = path(s, "captures", "captures.csv")
+        if not os.path.exists(f):
+            continue
+        listed = set()
+        for i, r in enumerate(read_csv(rel(f)), 2):
+            n += 1
+            where = f"{rel(f)} line {i} ({r.get('file') or r.get('url')})"
+            name, url = (r.get("file") or "").strip(), (r.get("url") or "").strip()
+            if not name and not url:
+                rep.fail(where, "needs a `file` in this folder or a `url`")
+                continue
+            if name:
+                listed.add(name)
+                fp = os.path.join(os.path.dirname(f), name)
+                if not os.path.exists(fp):
+                    rep.fail(where, f"{name} isn't in the captures folder")
+                else:
+                    with open(fp, "rb") as fh:
+                        b = fh.read()
+                    if hashlib.sha256(b).hexdigest() != r.get("sha256", "").strip():
+                        rep.fail(where, f"the sha256 doesn't match the file; it should be {hashlib.sha256(b).hexdigest()}")
+                    if str(len(b)) != r.get("bytes", "").strip():
+                        rep.fail(where, f"`bytes` should be {len(b)}")
+                    if len(b) > GIT_LIMIT:
+                        rep.fail(where, "files over 25 MB stay out of git: give a `url`, `sha256` and `bytes` instead")
+            elif not re.match(r"^[0-9a-f]{64}$", r.get("sha256", "").strip()) or not r.get("bytes", "").strip().isdigit():
+                rep.fail(where, "a linked capture needs its `sha256` and `bytes`, so anyone can confirm the file")
+            if url and not url.startswith("https://"):
+                rep.fail(where, "a `url` must start with https://")
+            for col in ("kind", "format", "by"):
+                if not (r.get(col) or "").strip():
+                    rep.fail(where, f"needs `{col}`")
+            if not valid_taken((r.get("taken") or "").strip()):
+                rep.fail(where, "`taken` needs a date: 2026-11-16, 2026-11, 2026 or a range like 1951/1952")
+            try:
+                if r.get("bbox", "").strip():
+                    w, so, e, no = map(float, r["bbox"].split(","))
+                    ok = -180 <= w < e <= 180 and -90 <= so < no <= 90
+                else:
+                    ok = -90 <= float(r["lat"]) <= 90 and -180 <= float(r["lng"]) <= 180
+            except (ValueError, KeyError):
+                ok = False
+            if not ok:
+                rep.fail(where, "needs where it was taken: `lat` and `lng`, or a `bbox` of west,south,east,north")
+            lic = (r.get("license") or "").strip()
+            if lic not in LICENSES and not lic.startswith("credit:"):
+                rep.fail(where, f"license `{lic}` isn't an open license this repo takes: {', '.join(sorted(LICENSES))}, or credit:<who>")
+            check_row_sources(rep, where, r.get("source_ids", ""), sources, required=False)
+        for extra in sorted(os.listdir(os.path.dirname(f))):
+            if extra not in listed and extra != "captures.csv" and not extra.startswith("."):
+                rep.fail(rel(os.path.join(os.path.dirname(f), extra)), "add a row for this file to captures.csv")
+    rep.notes.append(f"{n} captures checked")
 
 
 def run_models(study, rep):
@@ -299,9 +437,9 @@ def main():
     ap.add_argument("--page")
     a = ap.parse_args()
     rep = Report()
-    if not STUDIES:
-        rep.fail("repo", "no study folder with a numbers.csv was found")
     sources = check_sources(rep)
+    check_manifests(rep, sources)
+    check_captures(rep, sources)
     check_data(rep, sources)
     check_maps(rep)
     values = {}

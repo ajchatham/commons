@@ -1,0 +1,45 @@
+{
+  "rcp": "0.1",
+  "id": "cap-i-95/cap-the-highway",
+  "place": "cap-i-95",
+  "title": "Cap the highway",
+  "summary": "Keep I-95 in its trench and build a deck over it at street level from Atwells Ave to Westminster St when RIDOT rebuilds the bridges: about 150 homes from Atwells Ave to Broadway and a park from Broadway to Westminster St, with Broadway and Washington St crossing as ordinary streets.",
+  "author": "Andy Chatham",
+  "state": "proposed",
+  "study": "https://ajchatham.com/commons/cap-i-95/",
+  "phases": [
+    {
+      "id": "phase-one",
+      "name": "Atwells Ave to Westminster St",
+      "geometry": "maps/phase-one.geojson",
+      "budget": "proposal/budget/phase-one.csv"
+    },
+    {
+      "id": "phase-two",
+      "name": "Westminster St to Point St",
+      "geometry": "maps/trench.geojson"
+    }
+  ],
+  "numbers": "numbers.csv",
+  "images": "proposal/IMAGES.md",
+  "decides": [
+    "Rhode Island Department of Transportation",
+    "Federal Highway Administration",
+    "City of Providence"
+  ],
+  "next_decision": {
+    "what": "RIDOT starts designing the Connect Four bridges",
+    "when": "2029",
+    "source_ids": [
+      "ri-stip-amendment-2"
+    ]
+  },
+  "history": [
+    {
+      "state": "proposed",
+      "date": "2026-11-16",
+      "by": "Andy Chatham"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

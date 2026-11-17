@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ajchatham/commons/protocol/schema/proposal.schema.json",
+  "title": "Proposal",
+  "description": "A change proposed to a place: what would be built, by whom it would be decided, and where it stands. Each saved version is a git commit; each approval is a reviewed merge. Reality Context Protocol 0.1.",
+  "type": "object",
+  "required": ["rcp", "id", "place", "title", "summary", "author", "state", "history", "license"],
+  "properties": {
+    "rcp": { "type": "string", "enum": ["0.1"] },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-/]*$" },
+    "place": { "type": "string" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "author": { "type": "string" },
+    "state": { "type": "string", "enum": ["proposed", "agreed", "underway", "built", "verified", "dropped"] },
+    "study": { "type": "string" },
+    "phases": { "type": "array", "items": { "type": "object", "required": ["id", "name"] } },
+    "options": { "type": "array", "items": { "type": "object", "required": ["id", "summary"] }, "description": "Switchable alternatives inside the proposal, like a park-only deck or a deck with homes." },
+    "numbers": { "type": "string" },
+    "images": { "type": "string" },
+    "decides": { "type": "array", "items": { "type": "string" } },
+    "next_decision": { "type": "object", "required": ["what", "when"] },
+    "history": { "type": "array", "items": { "type": "object", "required": ["state", "date", "by"] } },
+    "license": { "type": "string" }
+  }
+}

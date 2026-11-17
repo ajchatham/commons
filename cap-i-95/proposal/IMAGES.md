@@ -1,6 +1,6 @@
-# Cap I-95: images
+# Cap I-95: drawings and renders
 
-Every image on the study page, where it comes from, and how it was made.
+How each drawing and render on the study page was made. The aerial photos are captures of what exists, so they're in [`../captures/`](../captures), with their sources in `captures.csv`.
 
 ## Drawings
 
@@ -10,16 +10,7 @@ Every image on the study page, where it comes from, and how it was made.
 | [`drawings/section-cross.svg`](drawings/section-cross.svg) | Across the trench at the park, to scale. Lanes from FHWA's 2024 highway data. |
 | [`drawings/footprints.svg`](drawings/footprints.svg) | The trench beside caps that exist, at one scale. The other outlines come from OpenStreetMap. |
 
-`python3 drawings/section.py` redraws both sections from `../maps/phase-one.geojson`.
-
-## Aerial photos
-
-| File | Source |
-| --- | --- |
-| [`aerials/aerial-2023.jpg`](aerials/aerial-2023.jpg), [`aerials/aerial-2023-crop.jpg`](aerials/aerial-2023-crop.jpg) | USDA NAIP, September 1, 2023, via the USGS National Map. Public domain. |
-| [`aerials/aerial-1951-crop.jpg`](aerials/aerial-1951-crop.jpg) | 1951–52 RISPP aerials via RIGIS. Credit RIGIS. |
-
-All three cover the same frame, which the maps' coordinates line up with.
+`python3 drawings/section.py` redraws both sections from [`../maps/phase-one.geojson`](../maps/phase-one.geojson).
 
 ## Concept renders
 
@@ -32,5 +23,7 @@ These are illustrations, not designs. Google's Gemini image model made them with
 | [`renders/render-park.jpg`](renders/render-park.jpg) | `p-park.txt` | The park at street level, looking south to Washington St. |
 | [`renders/render-broadway.jpg`](renders/render-broadway.jpg) | `p-broadway.txt`, then `p-broadway-signs.txt` | Broadway crossing the deck. The second prompt blanked the made-up lettering on the signs. |
 | [`renders/share-card.jpg`](renders/share-card.jpg) | | The link preview: the 2023 aerial with the outline and three numbers. |
+
+The aerial concept starts from [`../captures/aerial-2023.jpg`](../captures/aerial-2023.jpg).
 
 [`prompts/dropped/`](prompts/dropped) holds two prompts whose renders were wrong and aren't used. The Atwells Ave view put the open highway beside the street instead of under it. The bird's-eye view was tried three times and kept moving the homes beside the park and leaving an open gap behind Atwells Ave.

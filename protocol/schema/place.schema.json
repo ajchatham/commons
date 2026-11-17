@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ajchatham/commons/protocol/schema/place.schema.json",
+  "title": "Place",
+  "description": "A place in the Record: a public space, a corridor, a building or parcel, or a private property, unit or area. Reality Context Protocol 0.1.",
+  "type": "object",
+  "required": ["rcp", "id", "name", "level", "kind", "tier", "geometry", "license"],
+  "properties": {
+    "rcp": { "type": "string", "enum": ["0.1"] },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-/]*$" },
+    "name": { "type": "string" },
+    "level": { "type": "string", "enum": ["map", "space"], "description": "map: public places, parcels, buildings and their rules. space: one property and what's in it." },
+    "kind": { "type": "string", "enum": ["public-space", "corridor", "network", "jurisdiction", "parcel", "building", "property", "unit", "area"] },
+    "tier": { "type": "string", "enum": ["commons", "private"], "description": "commons: anyone can read it. private: only the place's members can." },
+    "jurisdictions": { "type": "array", "items": { "type": "string" } },
+    "owner": { "type": "string" },
+    "parts": { "type": "array", "items": { "type": "string" }, "description": "Other places this one is made of, by id. A national project lists its corridors; a corridor lists its sites." },
+    "geometry": { "type": "string", "description": "Path to a GeoJSON file, relative to this file." },
+    "captures": { "type": "string", "description": "Path to the captures.csv that lists what exists here now." },
+    "facts": { "type": "string", "description": "Path to the folder of fact tables (CSV with source_ids)." },
+    "links": { "type": "object" },
+    "license": { "type": "string" }
+  }
+}

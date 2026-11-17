@@ -8,6 +8,8 @@ The study: [ajchatham.com/commons/cap-i-95](https://ajchatham.com/commons/cap-i-
 
 | File | What it is |
 | --- | --- |
+| [`place.json`](place.json) | The place: the I-95 trench, in the commons tier, owned by RIDOT |
+| [`captures/`](captures) | What exists: the 2023 and 1951–52 aerials, listed in `captures.csv` with where, when, who and license |
 | [`data/traffic.csv`](data/traffic.csv) | Traffic and lanes between Westminster St and Broadway, from FHWA's 2024 highway data |
 | [`data/bridges.csv`](data/bridges.csv) | The four bridges over the trench, their condition, and which two are in RIDOT's Connect Four project |
 | [`data/connect-four.csv`](data/connect-four.csv) | Connect Four's planning grant and the state plan's money for the bridges |
@@ -20,10 +22,11 @@ The study: [ajchatham.com/commons/cap-i-95](https://ajchatham.com/commons/cap-i-
 | [`models/area.py`](models/area.py) | Acres and lengths, from the maps |
 | [`models/cost.py`](models/cost.py) | Cost per acre of caps that exist, and what phase one and the whole trench would cost at those rates |
 | [`models/tax.py`](models/tax.py) | What the land near the trench pays, and what homes on the deck could pay |
-| [`budget/phase-one.csv`](budget/phase-one.csv) | Phase one's budget lines. None has an amount yet; each needs a quote |
+| [`proposal/proposal.json`](proposal/proposal.json) | The change: what would be built, its phases, who decides, the next decision and where it stands |
+| [`proposal/budget/phase-one.csv`](proposal/budget/phase-one.csv) | Phase one's budget lines. None has an amount yet; each needs a quote |
 | [`numbers.csv`](numbers.csv) | Every number on the page that comes from this folder, written as the page shows it, and which file or model it comes from |
 | [`charts/cost-per-acre.svg`](charts/cost-per-acre.svg) | The cost chart, drawn by `models/cost.py` |
-| [`assets/`](assets) | Section drawings, aerial photos, concept renders and the prompts that made them |
+| [`proposal/`](proposal) | Section drawings, concept renders and the prompts that made them, explained in [`IMAGES.md`](proposal/IMAGES.md) |
 | [`CHANGES.md`](CHANGES.md) | Every change, dated, with who made it |
 
 ## What isn't here yet

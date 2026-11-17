@@ -1,0 +1,19 @@
+{
+  "rcp": "0.1",
+  "id": "cap-i-95",
+  "name": "I-95 trench, Federal Hill to Downcity",
+  "level": "map",
+  "kind": "corridor",
+  "tier": "commons",
+  "jurisdictions": [
+    "Providence, Rhode Island"
+  ],
+  "owner": "Rhode Island Department of Transportation",
+  "geometry": "maps/trench.geojson",
+  "captures": "captures/captures.csv",
+  "facts": "data/",
+  "links": {
+    "atlas": "https://articulate.network/commons/cap-i-95"
+  },
+  "license": "CC-BY-4.0"
+}
