@@ -1,0 +1,8 @@
+{
+  "ignoredFiles": [
+    "*/captures/*",
+    "**/captures/**",
+    "*/charts/*",
+    "**/drawings/**"
+  ]
+}
