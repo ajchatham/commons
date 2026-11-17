@@ -1,0 +1,11 @@
+You are editing a real top-down aerial photograph (north is up) of a sunken eight-lane highway in downtown Providence, Rhode Island.
+
+Image 1 is the real aerial photo.
+Image 2 is the same photo with the highway painted in flat color: CYAN at the top, MAGENTA below it.
+
+Return image 1, the same size and framing, with the highway inside the painted areas covered over:
+- In the CYAN area: a deck carrying three mid-rise brick apartment buildings, five to seven stories, flat roofs with small green rooftop gardens, with a narrow pedestrian lane between them.
+- In the MAGENTA area: a deck carrying a public park seen from directly above: green lawns, young shade trees in rows along the edges, curving pale paths, a small playground, and a paved plaza at the bottom end.
+- Where the existing bridges cross the painted areas, keep them as streets crossing over the new deck, with sidewalks.
+
+The covered areas must follow the exact outline of the painted areas. Outside the painted areas, keep image 1 exactly as it is. Photorealistic, same top-down camera, same sun angle and color as image 1. No painted colors, no labels, no text.

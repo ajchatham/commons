@@ -1,0 +1,4 @@
+metric,value,unit,source_ids,note
+demolition,97860000,USD,ridot-wb-snapshot-2026-11,"old westbound span, piers and foundations"
+new_bridge,427880000,USD,ridot-wb-snapshot-2026-11,budget at notice to proceed
+emergency_repairs,46400000,USD,ridot-wb-snapshot-2026-11,2023 to 2024; separate from the replacement

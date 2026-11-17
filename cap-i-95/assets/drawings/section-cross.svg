@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1000 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross section across the trench at the park, drawn to scale: Federal Hill on the left, Downcity on the right, both at street level. The deck spans the trench, about 220 feet, at street level, with lawn, trees and people on it. Underneath, in a tunnel, I-95 keeps its three lanes each way and its ramps, with supports between the lanes.">
+<rect x="0" y="186" width="247.0" height="124" fill="#d8d1c1"/>
+<rect x="753.0" y="186" width="247.0" height="124" fill="#d8d1c1"/>
+<rect x="247.0" y="241.2" width="506.0" height="68.8" fill="#d8d1c1"/>
+<path d="M18 186 V107.8 L50.0 85.8 L82 107.8 V186 Z" fill="#e3e6e4" stroke="#a3acaa" stroke-width="1.2"/>
+<path d="M92 186 V98.6 L124.0 76.6 L156 98.6 V186 Z" fill="#e3e6e4" stroke="#a3acaa" stroke-width="1.2"/>
+<path d="M166 186 V112.4 L195.0 90.4 L224 112.4 V186 Z" fill="#e3e6e4" stroke="#a3acaa" stroke-width="1.2"/>
+<rect x="767.0" y="43.4" width="84" height="142.6" fill="#e3e6e4" stroke="#a3acaa" stroke-width="1.2"/>
+<rect x="861.0" y="15.8" width="120" height="170.2" fill="#e3e6e4" stroke="#a3acaa" stroke-width="1.2"/>
+<circle cx="217.0" cy="175.0" r="2.2" fill="#1b2124"/><line x1="217.0" y1="177.5" x2="217.0" y2="186.0" stroke="#1b2124" stroke-width="2.2" stroke-linecap="round"/><circle cx="793.0" cy="175.0" r="2.2" fill="#1b2124"/><line x1="793.0" y1="177.5" x2="793.0" y2="186.0" stroke="#1b2124" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="247.0" y="197.5" width="506.0" height="43.7" fill="#2f3638"/>
+<rect x="247.0" y="241.2" width="506.0" height="3" fill="#5d6567"/>
+<rect x="495.0" y="197.5" width="10" height="43.7" fill="#8e9897"/>
+<rect x="367.4" y="197.5" width="10" height="43.7" fill="#8e9897"/>
+<rect x="622.6" y="197.5" width="10" height="43.7" fill="#8e9897"/>
+<rect x="485.1" y="233.2" width="29.9" height="8" fill="#9aa4a2"/>
+<rect x="457.3" y="229.2" width="14" height="12" rx="2" fill="#b9c0be"/>
+<rect x="402.1" y="229.2" width="14" height="12" rx="2" fill="#4f6d8f"/>
+<rect x="528.6" y="229.2" width="14" height="12" rx="2" fill="#4f6d8f"/>
+<rect x="583.9" y="229.2" width="14" height="12" rx="2" fill="#b9c0be"/>
+<rect x="680.3" y="210.2" width="20" height="31" rx="2" fill="#b9c0be"/>
+<rect x="302.7" y="229.2" width="14" height="12" rx="2" fill="#d9d4c4"/>
+<circle cx="265" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="311" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="357" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="403" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="449" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="495" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="541" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="587" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="633" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="679" cy="200.5" r="1.6" fill="#ffd34d"/>
+<circle cx="725" cy="200.5" r="1.6" fill="#ffd34d"/>
+<rect x="247.0" y="186" width="506.0" height="11.5" fill="#f2c230" stroke="#9a7a12" stroke-width="1.2"/>
+<rect x="247.0" y="182" width="506.0" height="4" fill="#6fae55"/>
+<line x1="287.0" y1="182" x2="287.0" y2="144.1" stroke="#6b5a45" stroke-width="2.4"/><circle cx="287.0" cy="129.0" r="16" fill="#4c9a3f" fill-opacity=".9"/>
+<line x1="372.0" y1="182" x2="372.0" y2="144.1" stroke="#6b5a45" stroke-width="2.4"/><circle cx="372.0" cy="129.0" r="16" fill="#4c9a3f" fill-opacity=".9"/>
+<line x1="628.0" y1="182" x2="628.0" y2="144.1" stroke="#6b5a45" stroke-width="2.4"/><circle cx="628.0" cy="129.0" r="16" fill="#4c9a3f" fill-opacity=".9"/>
+<line x1="713.0" y1="182" x2="713.0" y2="144.1" stroke="#6b5a45" stroke-width="2.4"/><circle cx="713.0" cy="129.0" r="16" fill="#4c9a3f" fill-opacity=".9"/>
+<circle cx="447.0" cy="169.3" r="2.5" fill="#1b2124"/><line x1="447.0" y1="172.2" x2="447.0" y2="182.0" stroke="#1b2124" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="479.0" cy="169.3" r="2.5" fill="#1b2124"/><line x1="479.0" y1="172.2" x2="479.0" y2="182.0" stroke="#1b2124" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="543.0" cy="169.3" r="2.5" fill="#1b2124"/><line x1="543.0" y1="172.2" x2="543.0" y2="182.0" stroke="#1b2124" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="573.0" cy="169.3" r="2.5" fill="#1b2124"/><line x1="573.0" y1="172.2" x2="573.0" y2="182.0" stroke="#1b2124" stroke-width="2.5" stroke-linecap="round"/>
+<text x="500.0" y="107.8" font-size="17" font-weight="700" text-anchor="middle" fill="#2f6b27" font-family="Archivo, Helvetica Neue, Arial, sans-serif">Park, at street level</text>
+<line x1="751.0" y1="191.8" x2="775.0" y2="215.5" stroke="#566166" stroke-width="1.2"/>
+<text x="779.0" y="220.5" font-size="14" font-weight="650" text-anchor="start" fill="#1b2124" font-family="Archivo, Helvetica Neue, Arial, sans-serif">Deck</text>
+<text x="500.0" y="262.2" font-size="12.5" font-weight="500" text-anchor="middle" fill="#1b2124" font-family="IBM Plex Mono, Menlo, monospace">I-95: three lanes each way and ramps, with supports between them</text>
+<text x="123.5" y="262.2" font-size="16" font-weight="700" text-anchor="middle" fill="#1b2124" font-family="Archivo, Helvetica Neue, Arial, sans-serif">Federal Hill</text>
+<text x="876.5" y="262.2" font-size="16" font-weight="700" text-anchor="middle" fill="#1b2124" font-family="Archivo, Helvetica Neue, Arial, sans-serif">Downcity</text>
+<line x1="247.0" y1="328" x2="753.0" y2="328" stroke="#1b2124" stroke-width="1.6"/>
+<line x1="247.0" y1="321" x2="247.0" y2="335" stroke="#1b2124" stroke-width="1.6"/>
+<line x1="753.0" y1="321" x2="753.0" y2="335" stroke="#1b2124" stroke-width="1.6"/>
+<rect x="426" y="316" width="148" height="24" fill="var(--card, #f9faf9)"/>
+<text x="500.0" y="333.0" font-size="15" font-weight="650" text-anchor="middle" fill="#1b2124" font-family="Archivo, Helvetica Neue, Arial, sans-serif">about 220 feet</text>
+</svg>

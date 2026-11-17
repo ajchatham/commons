@@ -1,0 +1,7 @@
+metric,value,unit,source_ids,note
+radius,250,m,pvd-parcels-cama,lots within this distance of the trench outline
+taxable_acres,97.2157,acres,pvd-tax-roll-2025;pvd-parcels-cama,lots billed more than $0 in 2025
+taxable_lots,365,lots,pvd-tax-roll-2025;pvd-parcels-cama,
+taxes_billed,12667255.12,USD a year,pvd-tax-roll-2025;pvd-parcels-cama,2025 bills on the taxable lots
+zero_acres,86.93659,acres,pvd-tax-roll-2025;pvd-parcels-cama,lots billed nothing in 2025
+zero_lots,124,lots,pvd-tax-roll-2025;pvd-parcels-cama,

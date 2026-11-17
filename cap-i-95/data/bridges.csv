@@ -1,0 +1,5 @@
+bridge_no,street,crosses,condition,in_connect_four,source_ids,note
+575,Atwells Ave,I-95 ramps,Fair,no,pvd-street-layer;ridot-bridge-map,"Connect Four's Atwells bridge is 775, over the Route 6 connector and Amtrak"
+574,Broadway,I-95,Fair,no,pvd-street-layer;ridot-bridge-map,
+573,Washington St,I-95,Fair,yes,pvd-street-layer;ridot-bridge-map,
+572,Westminster St,I-95,Fair,yes,pvd-street-layer;ridot-bridge-map,

@@ -1,0 +1,10 @@
+metric,value,unit,source_ids,note
+aadt,166377,"vehicles a day, both directions",hpms-2024,"I-95 route 40068780A, Westminster St to Broadway"
+aadt_single_unit_trucks,8420,vehicles a day,hpms-2024,same segment
+aadt_combination_trucks,5380,vehicles a day,hpms-2024,same segment
+through_lanes,6,lanes,hpms-2024,three each way
+lane_width,12,ft,hpms-2024,
+median_width,13,ft,hpms-2024,
+shoulder_right,10,ft,hpms-2024,
+shoulder_left,3,ft,hpms-2024,
+year,2024,,hpms-2024,HPMS data year

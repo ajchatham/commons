@@ -1,0 +1,8 @@
+line,covers,basis_today,status,amount_usd_low,amount_usd_high,source_ids
+deck-homes,"Deck, Atwells Ave to Broadway, strong enough for about 150 homes",Heavier than a park deck: buildings weigh far more than a park,needs a quote,,,
+deck-park,"Deck, Broadway to Westminster St, for the park",Built caps' cost per acre,needs a quote,,,
+tunnel-systems,"Tunnel systems: lights, standpipes, water and exits no more than 1,000 feet apart","NFPA 502: a road tunnel 1,000 to 3,280 feet long is category B",needs a quote,,,nfpa-502-nysdot
+staging,"Building over a working I-95: night and weekend closures",Klyde Warren Park in Dallas and Capitol Crossing in Washington,needs a quote,,,dallas-closures;fhwa-capitol-crossing
+park,"Park, about 6.5 acres",Klyde Warren Park's cost,needs a quote,,,fhwa-klyde-warren
+design,"Design, engineering and environmental review",,needs a quote,,,
+total,"Phase one, 8.6 acres",Built caps and estimates since 2020; models/cost.py,range,180000000,370000000,

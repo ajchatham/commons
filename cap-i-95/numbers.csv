@@ -1,0 +1,51 @@
+id,shown,from,format,where
+phase_one_acres,8.6,model:area.phase_one_acres,num1,"The trench; Cost"
+phase_two_acres,15.7,model:area.phase_two_acres,num1,Sources: The trench
+trench_acres,24.3,model:area.trench_acres,num1,"Sources: The trench; Cost"
+deck_width_ft,220,model:area.deck_width_ft,int,What gets built (caption)
+built_p25_per_acre,$20.6M,model:cost.built_p25_per_acre,usd_m1,Sources: Cost
+built_median_per_acre,$23.7M,model:cost.built_median_per_acre,usd_m1,Sources: Cost
+built_min_per_acre,$13 million,model:cost.built_min_per_acre,usd_mn,What it would cost
+built_max_per_acre,$37 million,model:cost.built_max_per_acre,usd_mn,What it would cost
+recent_median_per_acre,$42.5M,model:cost.recent_median_per_acre,usd_m1,What it would cost (chart)
+recent_median_headline,$42.5 million,model:cost.recent_median_per_acre,usd_mn1,What it would cost
+recent_estimates,12,model:cost.recent_estimates,int,What it would cost (chart)
+phase_one_low,$177M,model:cost.phase_one_low,usd_m,Sources: Cost
+phase_one_mid,$204M,model:cost.phase_one_mid,usd_m,Sources: Cost
+phase_one_high,$366M,model:cost.phase_one_high,usd_m,Sources: Cost
+phase_one_low_headline,$180 million,model:cost.phase_one_low,usd_mn10,What it would cost
+phase_one_high_headline,$370 million,model:cost.phase_one_high,usd_mn10,What it would cost
+trench_low,$499M,model:cost.trench_low,usd_m,Sources: Cost
+trench_mid,$575M,model:cost.trench_mid,usd_m,Sources: Cost
+trench_high,"$1,033M",model:cost.trench_high,usd_m,Sources: Cost
+trench_low_headline,$0.5 billion,model:cost.trench_low,usd_bn,What it would cost
+trench_high_headline,$1 billion,model:cost.trench_high,usd_bn,What it would cost
+per_acre_pace,$13.0M,model:cost.per_acre:i-579-cap-frankie-pace-park,usd_m1,What it would cost (chart)
+per_acre_columbus,$20.6M,model:cost.per_acre:the-cap-at-union-station,usd_m1,What it would cost (chart)
+per_acre_hance,$23.7M,model:cost.per_acre:margaret-t-hance-park-deck-park-tunnel,usd_m1,What it would cost (chart)
+per_acre_freeway,$32.1M,model:cost.per_acre:freeway-park,usd_m1,What it would cost (chart)
+per_acre_klyde,$36.6M,model:cost.per_acre:klyde-warren-park,usd_m1,What it would cost (chart)
+taxable_acres,97.2,data:tax-near-trench.csv:taxable_acres,num1,Sources: Taxes and homes
+taxes_billed,"$12,667,255",data:tax-near-trench.csv:taxes_billed,usd,Sources: Taxes and homes
+taxes_billed_headline,$12.67 million,data:tax-near-trench.csv:taxes_billed,usd_mn2,What the land pays
+tax_per_acre,"$130,300",model:tax.tax_per_acre,usd100,What the land pays
+trench_tax_a_year,$3.2M,model:tax.trench_tax_a_year,usd_m1,What the land pays
+phase_one_tax_a_year,$1.1M,model:tax.phase_one_tax_a_year,usd_m1,What the land pays
+zero_acres,86.9,model:tax.zero_acres,num1,Sources: Taxes and homes
+zero_share,47%,model:tax.zero_share,pct,What the land pays
+apartment_homes,529,model:tax.apartment_homes,int,Sources: Taxes and homes
+homes_per_acre,71,model:tax.homes_per_acre,int,Sources: Taxes and homes
+deck_homes,150,model:tax.deck_homes,int,The plan
+tax_per_home,"$5,190",model:tax.tax_per_home,usd10,Sources: Taxes and homes
+deck_homes_tax_a_year,$0.78M,model:tax.deck_homes_tax_a_year,usd_m2,Sources: Taxes and homes
+aadt,"166,377",data:traffic.csv:aadt,int,The trench
+trucks,"13,800",data:traffic.csv:aadt_single_unit_trucks+aadt_combination_trucks,int,Sources: The trench
+connect_four_total,$99.5M,data:connect-four.csv:stip_total,usd_m1,Sources: Cost
+connect_four_construction,$93M,data:connect-four.csv:stip_construction,usd_m,"Sources: Cost; What it would cost"
+connect_four_design,$6.5M,data:connect-four.csv:stip_design,usd_m1,Sources: Cost
+connect_four_grant,"$2,000,000",data:connect-four.csv:grant_federal,usd,Sources: Cost
+connect_four_match,"$500,000",data:connect-four.csv:grant_match,usd,Sources: Cost
+washington_bridge,$525.7 million,data:washington-bridge.csv:demolition+new_bridge,usd_mn1,What it would cost
+washington_bridge_exact,$525.74M,data:washington-bridge.csv:demolition+new_bridge,usd_m2,Sources: Cost
+washington_bridge_demolition,$97.86M,data:washington-bridge.csv:demolition,usd_m2,Sources: Cost
+washington_bridge_new,$427.88M,data:washington-bridge.csv:new_bridge,usd_m2,Sources: Cost

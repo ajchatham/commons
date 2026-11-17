@@ -1,0 +1,6 @@
+metric,value,unit,source_ids,note
+grant_federal,2000000,USD,usaspending-connect-four,"signed August 5, 2026; through December 31, 2030"
+grant_match,500000,USD,usaspending-connect-four,non-federal share
+stip_total,99500000,USD,ri-stip-amendment-2,"project 9997, Bridge Group 20A"
+stip_design,6500000,USD,ri-stip-amendment-2,FFY 2029 to 2031
+stip_construction,93000000,USD,ri-stip-amendment-2,2032 to 2035

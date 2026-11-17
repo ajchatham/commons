@@ -1,0 +1,5 @@
+address,homes,lot_acres,year_built,tax_2025_usd,source_ids,note
+336 Washington St,57,0.36,1900,54181,pvd-tax-roll-2025;pvd-parcels-cama,
+44 Greene St,100,1.08,1970,504448,pvd-tax-roll-2025;pvd-parcels-cama,
+1 Chestnut St,180,2.52,1967,418121,pvd-tax-roll-2025;pvd-parcels-cama,
+123 Regency Plaza,192,3.44,1967,1768713,pvd-tax-roll-2025;pvd-parcels-cama,
